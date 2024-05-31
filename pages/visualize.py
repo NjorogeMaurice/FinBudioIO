@@ -19,6 +19,11 @@ no_of_transaction = 0
 def is_pdf(file):
     return file.name.endswith('.pdf')
 
+def convert_to_float(column,all_transactions):
+    if all_transactions[column].dtype != 'float64':
+        all_transactions[column] = all_transactions[column].apply(lambda x: float(str(x).replace('$', '').replace(',', '')))
+    return all_transactions[column]
+
 def clean_data(df):
     try:
         df = read_pdf(df,password='208228',pages='all')
@@ -43,9 +48,9 @@ def clean_data(df):
         all_transactions = pd.concat(transactions)
         all_transactions.columns = all_transactions.columns.str.strip().str.replace('\r', '')
         all_transactions['Completion Time'] = pd.to_datetime(all_transactions['Completion Time']).dt.date
-        # all_transactions['Withdrawn'] = all_transactions['Withdrawn'].apply(lambda x: float(x.replace('$','').replace(',','')))
-        # all_transactions['Balance'] = all_transactions['Balance'].apply(lambda x: float(x.replace('$','').replace(',','')))
-        # all_transactions['Paid in'] = all_transactions['Paid in'].apply(lambda x: float(x.replace('$','').replace(',','')))
+        all_transactions['Withdrawn'] = convert_to_float('Withdrawn',all_transactions)
+        all_transactions['Balance'] = convert_to_float('Balance',all_transactions)
+        all_transactions['Paid in'] = convert_to_float('Paid in',all_transactions)
     else:
         all_transactions=None
 
