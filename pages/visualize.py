@@ -21,11 +21,11 @@ def is_pdf(file):
 
 def clean_data(df):
     try:
-        df = read_pdf(df,password='172255',pages='all')
-        print(df)
+        df = read_pdf(df,password='208228',pages='all')
+        st.warning("length of df")
     except:
-        df = read_pdf(df,password='172255')
-        print(df)
+        df = read_pdf(df,password='208228')
+        st.warning("length of df")
     no_of_transaction = len(df)
     summary = df[0] 
     
