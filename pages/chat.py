@@ -31,7 +31,7 @@ if prompt := st.chat_input("This feature will coming out soon"):
     # st.session_state.messages.append({"role": "user", "content": prompt})
     pass
 
-prompt="Meet FinChatBot, your personalized financial assistant designed to make managing your finances a breeze. \
+prompt="Meet FinChatBot, your personalized financial 'buddy' designed to assist managing your finances. \
     With FinChatBot, you can interact directly with your financial data, gaining insights and advice tailored to your unique financial situation. \
         Whether you're planning for retirement, budgeting for a major purchase, or just trying to stay on top of your daily expenses, \
             FinChatBot is here to provide expert guidance and support. Say goodbye to financial uncertainty and hello to a smarter, more informed approach to managing your money"

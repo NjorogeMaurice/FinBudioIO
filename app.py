@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 st.header('Welcome to FinBudIO', divider='blue')
-st.write("Empower Your Financial Journey \
+st.write("\
 At FinBudIO, we believe that managing your finances should be intuitive, insightful, and empowering. \
 Our innovative platform transforms the way you interact with your financial data, \
 providing you with the tools you need to make informed decisions and achieve your financial goals.")
