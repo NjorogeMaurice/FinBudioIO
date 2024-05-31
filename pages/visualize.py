@@ -29,11 +29,11 @@ def clean_data(df):
     no_of_transaction = len(df)
     summary = df[0] 
     
-    summary['PAID IN'] = summary['PAID IN'].apply(lambda x: float(x.replace('$','').replace(',','')))
-    summary['PAID OUT'] = summary['PAID OUT'].apply(lambda x: float(x.replace('$','').replace(',','')))
-    # delete the last row in a dataframe
-    summary = summary.drop(summary.index[-1])
-    summary = summary.drop(['Unnamed: 0'],axis='columns')
+    # summary['PAID IN'] = summary['PAID IN'].apply(lambda x: float(x.replace('$','').replace(',','')))
+    # summary['PAID OUT'] = summary['PAID OUT'].apply(lambda x: float(x.replace('$','').replace(',','')))
+    # # delete the last row in a dataframe
+    # summary = summary.drop(summary.index[-1])
+    # summary = summary.drop(['Unnamed: 0'],axis='columns')
 
    
     
@@ -72,14 +72,15 @@ if uploaded_file is not None:
             # summary,all_transactions = clean_data(uploaded_file)
             st.write("## Summary of all transactions")
             st.divider()
-            st.write("### Time Series of Paid Out Amounts")
-            st.bar_chart(data=summary,x='TRANSACTION TYPE', y='PAID OUT', use_container_width=True)
-            st.divider()
-            st.write("### Time Series of Paid Out Amounts")
-            st.bar_chart(data=summary,x='TRANSACTION TYPE', y='PAID IN', use_container_width=True)
-            st.divider()
-            st.write("## Details of all transactions")
-            st.divider()
+            st.write(summary)
+            # st.write("### Time Series of Paid Out Amounts")
+            # st.bar_chart(data=summary,x='TRANSACTION TYPE', y='PAID OUT', use_container_width=True)
+            # st.divider()
+            # st.write("### Time Series of Paid Out Amounts")
+            # st.bar_chart(data=summary,x='TRANSACTION TYPE', y='PAID IN', use_container_width=True)
+            # st.divider()
+            # st.write("## Details of all transactions")
+            # st.divider()
 
             if all_transactions is not None:
                 st.write("### Time Series of Paid in Amounts")
