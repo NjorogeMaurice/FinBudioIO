@@ -3,7 +3,7 @@ import streamlit as st
 from io import StringIO
 import time
 from tabula import read_pdf
-import matplotlib.pyplot as plt
+
 
 
 add_sidebar_title = st.sidebar.write("Welcome to FinBudIO")
