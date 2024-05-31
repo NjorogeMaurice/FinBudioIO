@@ -22,11 +22,13 @@ def is_pdf(file):
 def clean_data(df):
     try:
         df = read_pdf(df,password='172255',pages='all')
+        print(df)
     except:
         df = read_pdf(df,password='172255')
+        print(df)
     no_of_transaction = len(df)
     summary = df[0] 
-    print(summary)
+    
     summary['PAID IN'] = summary['PAID IN'].apply(lambda x: float(x.replace('$','').replace(',','')))
     summary['PAID OUT'] = summary['PAID OUT'].apply(lambda x: float(x.replace('$','').replace(',','')))
     # delete the last row in a dataframe
