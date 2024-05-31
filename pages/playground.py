@@ -10,7 +10,7 @@ st.sidebar.page_link("pages/visualize.py", label="Visualize data")
 st.sidebar.page_link("pages/playground.py", label="Playground")
 st.sidebar.page_link("pages/chat.py", label="Chat with your data")
 
-st.header('Playground', divider='blue')
+st.header('Playground - Low Code', divider='blue')
 st.write("###  Learn more from your financial data (Still under development)")
-st.write("Try predictive analysis, anomaly detection etc using different machine learning models")
+st.write("Try predictive analysis, anomaly detection and many more using different machine learning models")
 
