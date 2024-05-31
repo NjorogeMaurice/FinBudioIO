@@ -10,7 +10,8 @@ add_sidebar_title = st.sidebar.write("Welcome to FinBudIO")
 add_divider = st.sidebar.divider() 
 st.sidebar.page_link("app.py", label="Home")
 st.sidebar.page_link("pages/visualize.py", label="Visualize data")
-st.sidebar.page_link("pages/chat.py", label="Chat with data")
+st.sidebar.page_link("pages/playground.py", label="Playground")
+st.sidebar.page_link("pages/chat.py", label="Chat with your data")
 
 def is_pdf(file):
     return file.name.endswith('.pdf')
@@ -49,7 +50,7 @@ if uploaded_file is not None:
     time.sleep(1)
     if is_pdf(uploaded_file):
         st.success("File uploaded successfully!")
-        
+        summary,all_transactions = clean_data(uploaded_file)
         try:
             summary,all_transactions = clean_data(uploaded_file)
             st.write("## Summary of all transactions")
@@ -69,6 +70,7 @@ if uploaded_file is not None:
             st.line_chart(data=all_transactions,x='Completion Time',y=["Withdrawn"], use_container_width=True)
             st.divider()
             st.write("### Time Series of Balance Amounts")
+            
             st.line_chart(data=all_transactions,x='Completion Time',y=["Balance"], use_container_width=True)
         except:
             st.warning("Warning: Uploaded PDF file is not supported")
