@@ -22,7 +22,7 @@ def is_pdf(file):
 def clean_data(df):
     try:
         df = read_pdf(df,password='208228',pages='all')
-        st.warning("length of df")
+        st.warning("length of df, {number}".format(number=len(df)))
     except:
         df = read_pdf(df,password='208228')
         st.warning("length of df")
@@ -69,7 +69,7 @@ if uploaded_file is not None:
         summary,all_transactions = clean_data(uploaded_file)
         try:
 
-            summary,all_transactions = clean_data(uploaded_file)
+            # summary,all_transactions = clean_data(uploaded_file)
             st.write("## Summary of all transactions")
             st.divider()
             st.write("### Time Series of Paid Out Amounts")
