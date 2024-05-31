@@ -47,10 +47,10 @@ def clean_data(df):
         transactions = df
         all_transactions = pd.concat(transactions)
         all_transactions.columns = all_transactions.columns.str.strip().str.replace('\r', '')
-        all_transactions['Completion Time'] = pd.to_datetime(all_transactions['Completion Time']).dt.date
-        all_transactions['Withdrawn'] = convert_to_float('Withdrawn',all_transactions)
-        all_transactions['Balance'] = convert_to_float('Balance',all_transactions)
-        all_transactions['Paid in'] = convert_to_float('Paid in',all_transactions)
+        # all_transactions['Completion Time'] = pd.to_datetime(all_transactions['Completion Time']).dt.date
+        # all_transactions['Withdrawn'] = convert_to_float('Withdrawn',all_transactions)
+        # all_transactions['Balance'] = convert_to_float('Balance',all_transactions)
+        # all_transactions['Paid in'] = convert_to_float('Paid in',all_transactions)
     else:
         all_transactions=None
 
@@ -88,15 +88,16 @@ if uploaded_file is not None:
             # st.divider()
 
             if all_transactions is not None:
-                st.write("### Time Series of Paid in Amounts")
-                st.line_chart(data=all_transactions,x='Completion Time',y=["Paid in"], use_container_width=True)
-                st.divider()
-                st.write("### Time Series of Withdrawn Amounts")
-                st.line_chart(data=all_transactions,x='Completion Time',y=["Withdrawn"], use_container_width=True)
-                st.divider()
-                st.write("### Time Series of Balance Amounts")
+                st.write(all_transactions.head())
+                # st.write("### Time Series of Paid in Amounts")
+                # st.line_chart(data=all_transactions,x='Completion Time',y=["Paid in"], use_container_width=True)
+                # st.divider()
+                # st.write("### Time Series of Withdrawn Amounts")
+                # st.line_chart(data=all_transactions,x='Completion Time',y=["Withdrawn"], use_container_width=True)
+                # st.divider()
+                # st.write("### Time Series of Balance Amounts")
                 
-                st.line_chart(data=all_transactions,x='Completion Time',y=["Balance"], use_container_width=True)
+                # st.line_chart(data=all_transactions,x='Completion Time',y=["Balance"], use_container_width=True)
             else:
                 st.write("No transaction records found in the uploaded file")
         except:
