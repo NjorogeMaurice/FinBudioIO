@@ -11,6 +11,6 @@ st.sidebar.page_link("pages/playground.py", label="Playground")
 st.sidebar.page_link("pages/chat.py", label="Chat with your data")
 
 st.header('Playground', divider='blue')
-st.write("###  Learn more from your financial data")
-st.write("Try predictive analysis, anomaly detectio etc using different machine learning models")
+st.write("###  Learn more from your financial data (Still under development)")
+st.write("Try predictive analysis, anomaly detection etc using different machine learning models")
 
