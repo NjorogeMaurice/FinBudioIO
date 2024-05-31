@@ -63,6 +63,7 @@ if uploaded_file is not None:
     time.sleep(1)
     if is_pdf(uploaded_file):
         st.success("File uploaded successfully!")
+        summary,all_transactions = clean_data(uploaded_file)
         try:
 
             summary,all_transactions = clean_data(uploaded_file)
