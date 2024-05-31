@@ -44,8 +44,8 @@ def clean_data(df):
         all_transactions.columns = all_transactions.columns.str.strip().str.replace('\r', '')
         all_transactions['Completion Time'] = pd.to_datetime(all_transactions['Completion Time']).dt.date
         # all_transactions['Withdrawn'] = all_transactions['Withdrawn'].apply(lambda x: float(x.replace('$','').replace(',','')))
-        all_transactions['Balance'] = all_transactions['Balance'].apply(lambda x: float(x.replace('$','').replace(',','')))
-        all_transactions['Paid in'] = all_transactions['Paid in'].apply(lambda x: float(x.replace('$','').replace(',','')))
+        # all_transactions['Balance'] = all_transactions['Balance'].apply(lambda x: float(x.replace('$','').replace(',','')))
+        # all_transactions['Paid in'] = all_transactions['Paid in'].apply(lambda x: float(x.replace('$','').replace(',','')))
     else:
         all_transactions=None
 
